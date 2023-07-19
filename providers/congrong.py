@@ -1,6 +1,6 @@
 import requests
 import json
-from log import logger
+import logging
 
 
 class CongrongProvider:
@@ -50,6 +50,6 @@ class CongrongProvider:
             timeout=600,
             headers=headers
         )
-        # logger.info(f"response:{response.text}")
+        # logging.info(f"response:{response.text}")
         result = response.json()["generated_text"]
         return result
