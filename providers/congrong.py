@@ -28,7 +28,7 @@ class CongrongProvider:
         self.AI_REPETITION_PENALTY = AI_REPETITION_PENALTY
         self.AI_TRUNCATE = AI_TRUNCATE
 
-    def instruct(self, prompt, tokens: int = 0):
+    async def instruct(self, prompt, tokens: int = 0):
         print(f"congrong instruct")
         params = {
             "inputs": prompt,
@@ -42,8 +42,8 @@ class CongrongProvider:
                 "truncate": int(self.AI_TRUNCATE),
             }
         }
+        # logging.info(f"params:{json.dumps(params, ensure_ascii=False)}")
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        print(f"params:{json.dumps(params, ensure_ascii=False)}")
         response = requests.post(
             self.AI_PROVIDER_URI,
             json=params,
