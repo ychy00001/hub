@@ -20,7 +20,7 @@ except ImportError:
     import sys
 
     subprocess.check_call(
-        [sys.executable, "-m", "pip", "install", "playwright==1.33.0"]
+        [sys.executable, "-m", "pip", "install", "playwright==1.37.0"]
     )
     from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
@@ -30,6 +30,7 @@ class web_playwright(Extensions):
         self.commands = {
             "Scrape Text with Playwright": self.scrape_text_with_playwright,
             "Scrape Links with Playwright": self.scrape_links_with_playwright,
+            "Take Screenshot with Playwright": self.take_screenshot_with_playwright,
         }
 
     async def scrape_text_with_playwright(self, url: str) -> str:
@@ -78,3 +79,16 @@ class web_playwright(Extensions):
         except Exception as e:
             formatted_links = f"Error: {str(e)}"
         return formatted_links
+
+    async def take_screenshot_with_playwright(self, url: str, path: str):
+        try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch()
+                context = await browser.new_context()
+                page = await context.new_page()
+                await page.goto(url)
+                await page.screenshot(path=path, full_page=True, type="png")
+                await browser.close()
+        except Exception as e:
+            print(e)
+            return f"Error: {str(e)}"

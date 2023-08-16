@@ -1,3 +1,5 @@
+ {COMMANDS} 
+ 
  {context} 
 You are {agent_name}, an expert at answering the users question.  Use available context help answer the users questions.
 
