@@ -1,0 +1,31 @@
+{
+    "commands": {},
+    "settings": {
+        "provider": "congrong",
+        "embedder": "default",
+        "AI_MODEL": "从容",
+        "AI_TEMPERATURE": "0.7",
+        "AI_TOP_P": "0.95",
+        "MAX_TOKENS": "1024",
+        "helper_agent_name": "congrong",
+        "WEBSEARCH_TIMEOUT": 0,
+        "OPENAI_API_KEY": "YOUR_OPENAI_API_KEY_HERE",
+        "WAIT_BETWEEN_REQUESTS": 1,
+        "WAIT_AFTER_FAILURE": 3,
+        "stream": false,
+        "WORKING_DIRECTORY": "./WORKSPACE",
+        "WORKING_DIRECTORY_RESTRICTED": "True",
+        "AUTONOMOUS_EXECUTION": false,
+        "AI_PROVIDER_URI": "http://123.249.78.135:8528/generate",
+        "AI_TOP_K": "50",
+        "AI_DO_SAMPLE": "False",
+        "AI_REPETITION_PENALTY": "1.0",
+        "AI_TRUNCATE": "800",
+        "DISCORD_COMMAND_PREFIX": "/AGiXT",
+        "HUGGINGFACE_AUDIO_TO_TEXT_MODEL": "facebook/wav2vec2-large-960h-lv60-self",
+        "ELEVENLABS_VOICE": "Josh",
+        "USE_BRIAN_TTS": "True",
+        "GOOGLE_API_KEY": "AIzaSyAYjsWUUakyNGak786HZ4NqV7YxMueDEMY",
+        "GOOGLE_SEARCH_ENGINE_ID": "00d3ea1509f2748fe"
+    }
+}

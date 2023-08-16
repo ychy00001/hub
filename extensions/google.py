@@ -2,6 +2,16 @@ from typing import Union, List
 import json
 from Extensions import Extensions
 
+try:
+    from googleapiclient.discovery import build
+    from googleapiclient.errors import HttpError
+except ImportError:
+    import sys
+    import subprocess
+
+    subprocess.check_call([sys.exewcutable, "-m", "pip", "install", "google-api-python-client==2.87.0"])
+    from googleapiclient.discovery import build
+    from googleapiclient.errors import HttpError
 
 class google(Extensions):
     def __init__(self, GOOGLE_API_KEY: str = "", GOOGLE_SEARCH_ENGINE_ID: str = "", **kwargs):
@@ -16,8 +26,6 @@ class google(Extensions):
     async def google_official_search(
             self, query: str, num_results: int = 8
     ) -> Union[str, List[str]]:
-        from googleapiclient.discovery import build
-        from googleapiclient.errors import HttpError
 
         try:
             # Get the Google API key and Custom Search Engine ID from the config file
@@ -60,8 +68,6 @@ class google(Extensions):
     async def google_costumer_search(
             self, query: str, num_results: int = 8
     ) -> Union[str, List[str]]:
-        from googleapiclient.discovery import build
-        from googleapiclient.errors import HttpError
 
         try:
             # Get the Google API key and Custom Search Engine ID from the config file
